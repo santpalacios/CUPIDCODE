@@ -2,12 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="images/favico.ico"/>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CupidCode</title>
     <link rel="stylesheet" href="style.css" />
+      <!-- <link rel="stylesheet" href="nosotros.css" />  -->
+    <link rel="stylesheet" href="scroll.css" />
+    <!-- <link rel="stylesheet" href="progressbar.css" />  -->
+     <!-- <link rel="stylesheet" href="blog.css" />   -->
+
+
   </head>
   <body>
+<div class="progressbar">
+  <div class="filled">
+  </div>
+</div>
     <main>
       <div class="big-wrapper light">
         <img src="./img/shape.png" alt="" class="shape" />
@@ -15,21 +27,20 @@
         <header>
           <div class="container">
             <div class="logo">
-              <img src="images/logo (2).png" alt="Logo" />
+              <img src="images/logo.png" alt="Logo" />
               <h3>CupidCode</h3>
             </div>
 
             <div class="links">
               <ul>
                 <li><a href="#">Inicio</a></li>
-                <li><a href="#">Sobre nosotros</a></li>
-                <li><a href="#">¿Por qué CupidCode?</a></li>
+                <li><a  href="#nosotros">Sobre nosotros</a></li>
+                <li><a  href="#porque">¿Por qué CupidCode?</a></li>
                 <li><a href="registro.html" class="btn">Iniciar Sesión</a></li>
               </ul>
             </div>
 
             <div class="overlay"></div>
-
             <div class="hamburger-menu">
               <div class="bar"></div>
             </div>
@@ -48,14 +59,15 @@
                  <span style="font-weight:900">¡Portate mal y cuidate bien!</span>
               </p>
               <div class="cta">
-                <a href="#" class="btn">Get started</a>
+                <a href="#" class="btn">Llevame ahí!</a>
               </div>
             </div>
-
+<div class="box">
             <div class="right">
               <img src="images/personas.png" alt="Person Image" class="person" />
             </div>
           </div>
+        </div>
         </div>
 
         <div class="bottom-area">
@@ -67,11 +79,39 @@
           </div>
         </div>
       </div>
+      <!-- Sobre nosotros -->
+      
+    <!-- <div class="about-section" id="nosotros">
+      <div class="box">
+      <div class="inner-container">
+          <h1>Sobre nosotros:</h1>
+          <p class="text">Somos un grupo de jóvenes del Instituto Tecnológico de Iztapalapa.Estamos desarrollando un proyecto para la materia
+            de Tópicos selectos de programación web, el cual consiste en aplicar los conceptos y buenas prácticas de desarrollo UX/iX       </p>
+          <div class="skills">
+              <div class="comentarios"></div>
+              <div class="comentarios"></div>
+              <div class="comentarios"></div>
+          </div>
+      </div>
+    </div>
+  </div> -->
+
+
+<!-- seccion blog -->
+
+<!--  -->
+
     </main>
 
-    <!-- JavaScript Files -->
+
 
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/progressbar.js"></script>
+    <script src="js/script.js"></script>
+
+
+
   </body>
 </html>

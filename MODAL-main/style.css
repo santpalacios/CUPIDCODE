@@ -30,6 +30,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+
 }
 
 .stop-scrolling {
@@ -88,7 +90,7 @@ header .container {
 }
 
 .logo img {
-  width: 40px;
+  width: 120px;
   margin-right: 0.6rem;
   margin-top: -0.6rem;
 }
@@ -255,7 +257,6 @@ header .container {
 }
 
 .shape {
-  position: absolute;
   z-index: 0;
   width: 500px;
   bottom: -180px;
