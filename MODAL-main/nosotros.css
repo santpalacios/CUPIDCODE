@@ -1,10 +1,15 @@
-
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu";
+    box-sizing: border-box;
+}
 
 
 .about-section{
-    background: url(images/nosotros.jpeg) no-repeat left;
+    background-image: url("images/amor.jpg");
     background-size: 55%;
-    background-color: #f1f8fc;
+    background-color: #fdfdfd;
     overflow: hidden;
     padding: 100px 0;
 }
@@ -12,7 +17,7 @@
 .inner-container{
     width: 55%;
     float: right;
-    background-color: #deedf6;
+    background-color: #fdfdfd;
     padding: 150px;
 }
 
@@ -23,7 +28,7 @@
 }
 
 .text{
-    font-size: 13px;
+    font-size: 17px;
     color: #545454;
     line-height: 30px;
     text-align: justify;
@@ -60,11 +65,4 @@
     .inner-container{
         padding: 60px;
     }
-}
-
-.comentarios{
-    display: flex;
-    justify-content: space-around;
-    border-radius: 10px solid black;
-    border-color: black;
 }
