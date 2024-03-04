@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CupidCode</title>
-    <link rel="shortcut icon" href="images/favico.ico"/>
+    <link rel="shortcut icon" href="images/favico.ico" />
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
     <link rel="stylesheet" href="style.css">
@@ -24,11 +24,11 @@
         <div class="big-wrapper light">
             <img src="./img/shape.png" alt="" class="shape" />
 
-<!-- ESTE S EL HEADER PONER ESTE EN EL HTML Y ABAJO ESTA EL SCRIPT -->
+            <!-- ESTE S EL HEADER PONER ESTE EN EL HTML Y ABAJO ESTA EL SCRIPT -->
 
             <div class="header_load">
             </div>
-<!--  -->
+            <!--  -->
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
@@ -180,11 +180,16 @@
                                             <div><img class="icono" src="images/icon+.svg"></div>
                                         </div>
                                     </div>
-                                    <div class="boton-modal" style="display:flex; justify-content:space-around;">
-                                        <input type="button" name="previous" class="previous action-button-previous"
-                                            value="Previous" />
-                                        <label for="btn-modal">¡Terminé!</label>
+
+
+                                    <div class="boton-modal" style="display:flex; justify-content: flex-end;">
+                                        <input style="display:flex;" type="button" name="previous"
+                                            class="previous action-button-previous" value="Previous" />
+                                        <label for="btn-modal" id="redirigirBoton">¡Terminé!</label>
                                     </div>
+
+
+
                         </div>
                         </fieldset>
                         </form>
@@ -197,9 +202,16 @@
             </div>
         </div>
         </div>
-    
-    </main>
 
+    </main>
+    <script>
+        document.getElementById('redirigirBoton').addEventListener('click', function () {
+            // Esperar 5 segundos (5000 milisegundos) antes de redirigir
+            setTimeout(function () {
+                window.location.href = 'tu_otra_pagina.html'; // Reemplaza 'tu_otra_pagina.html' con la URL deseada
+            }, 5000);
+        });
+    </script>
 
     <!-- SCRIPT DE HEADER -->
     <script>
@@ -207,7 +219,7 @@
             $('.header_load').load('header.html');
         });
     </script>
-<!--  -->
+    <!--  -->
     <script>
         $(document).ready(function () {
             $('.ventana_modal').load('modal_registro.html');

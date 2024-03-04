@@ -10,6 +10,11 @@
   --lightTwo: #aaa;
 }
 
+.logo a{
+  text-decoration: none;
+}
+
+
 .dark {
   --mainColor: #64bcf4;
   --hoverColor: #5bacdf;
@@ -29,9 +34,9 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  scroll-behavior: smooth;
-
+  font-family: "Ubuntu";
+  scroll-behavior: smooth; 
+  font-weight: 600;
 }
 
 .stop-scrolling {
@@ -97,7 +102,7 @@ header .container {
 
 .logo h3 {
   color: var(--darkTwo);
-  font-size: 1.55rem;
+  font-size: 1.8rem;
   line-height: 1.2;
   font-weight: 700;
 }
@@ -113,6 +118,7 @@ header .container {
   margin-left: 4.5rem;
   display: inline-block;
   transition: 0.3s;
+  text-decoration: none;
 }
 
 .links a:hover {
@@ -203,10 +209,10 @@ header .container {
 
 .text {
   color: var(--lightOne);
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   margin: 1.9rem 0 2.5rem;
   max-width: 600px;
-  line-height: 2.3;
+  line-height: 1.5;
 }
 
 .showcase-area .btn {
@@ -271,6 +277,9 @@ header .container {
   z-index: 100;
   animation: appear 1s 1 both;
 }
+
+
+
 
 @keyframes appear {
   0% {

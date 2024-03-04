@@ -8,10 +8,6 @@
   box-sizing: border-box;
 }
 
-body,
-input {
-  font-family: "Poppins", sans-serif;
-}
 
  
 
@@ -126,12 +122,6 @@ form.sign-up-form {
   color: #151111;
   transition: 0.4s;
 }
-
-
-
-
-
-
 
 
 label {
