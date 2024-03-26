@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body{
-    background: #efefef;
+    background: white;
 }
 .boton-modal{
     background-color: #fff;
@@ -45,7 +45,7 @@ body{
     width: 100%;
     max-width: 400px;
     padding: 20px;
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 4px;
 }
 .content-modal h2{
@@ -61,5 +61,6 @@ body{
     .content-modal{
         width: 90%;
     }
-}
-/*:::Fin Ventana Modal:::*/
+} 
+
+

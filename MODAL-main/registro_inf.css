@@ -237,11 +237,10 @@ select{
     
 }
 
-
-
 .wrapper_fotos {
     animation: bounce 2s infinite;
 }
+
 @keyframes bounce {
     0%,
     25%,
@@ -287,12 +286,11 @@ select{
 }
 
 
-@media (min-width: 412px) and (max-width: 914px) {
+/* @media (min-width: 412px) and (max-width: 914px) {
     
     .wrapper_fotos{
     height: 70rem;
     grid-template-columns: 150px 150px;
-    /* COLUMNAS RESPONSIVAS */
     grid-template-columns: repeat(auto-fit, minmax(min(7.25rem,100%),2fr));
 
     grid-template-rows: 150px 150px;
@@ -305,15 +303,14 @@ select{
         width:700px;
     }
 
-  }
+  } */
 
 
-  @media (min-width: 430px) and (max-width: 932px) {
+  /* @media (min-width: 430px) and (max-width: 932px) {
     
     .wrapper_fotos{
     height: 70rem;
     grid-template-columns: 150px 150px;
-    /* COLUMNAS RESPONSIVAS */
     grid-template-columns: repeat(auto-fit, minmax(min(7.25rem,100%),2fr));
 
     grid-template-rows: 150px 150px;
@@ -323,15 +320,15 @@ select{
         height: 40px;
     }
 
-  }
+  } */
 
 
-  @media (min-width: 390px) and (max-width: 844px) {
+  /* @media (min-width: 390px) and (max-width: 844px) {
     
     .wrapper_fotos{
     height: 70rem;
     grid-template-columns: 150px 150px;
-    /* COLUMNAS RESPONSIVAS */
+
     grid-template-columns: repeat(auto-fit, minmax(min(7.25rem,100%),2fr));
 
     grid-template-rows: 150px 150px;
@@ -341,6 +338,46 @@ select{
         height: 40px;
     }
 
-  }
+  } */
 
-/*  */
+
+  /* @media (max-width: 667px) {
+    
+    .wrapper_fotos{
+    grid-template-columns: 100px 100px;
+    grid-template-columns: repeat(auto-fit, minmax(min(5.25rem,100%),2fr));
+    grid-template-rows: 150px 150px;
+    }
+    .icono{
+        width: 40px;
+        height: 40px;
+    }
+    body{
+        height: 400px;
+    }
+
+    .form-card{
+        height: 600px;
+    }
+  }
+ */
+
+
+  @media (max-width: 736px) {
+    .wrapper_fotos{
+    
+        grid-template-columns: 110px 110px;
+        grid-template-columns: repeat(auto-fit, minmax(min(5.25rem,100%),1fr 1fr));
+    
+        grid-template-rows: 150px 150px;
+        }
+        .icono{
+            width: 40px;
+            height: 40px;
+        }
+        .form-card{
+            height: auto;
+        }
+  }  
+
+ 

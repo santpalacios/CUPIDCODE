@@ -17,7 +17,7 @@ position:static ;
   max-width: 1020px;
   height: 40px;
   border-radius: 3.3rem;
-  box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
+  /* box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27); */
 }
 
 .inner-box {
@@ -62,13 +62,13 @@ form.sign-up-form {
 
 .logo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.logo img {
+/* .logo img {
   width: 27px;
   margin-right: 0.3rem;
-}
+} */
 
 .logo h4 {
   font-size: 1.1rem;
@@ -77,23 +77,26 @@ form.sign-up-form {
   color: #151111;
 }
 
+
+
 .heading h2 {
-  font-size: 2.1rem;
+  font-size: 2.5rem;
   font-weight: 600;
   color: #151111;
+  text-align: center;
 }
 
 .heading h6 {
-  color: #5e5c5c;
+  color: #151111;
   font-weight: 400;
-  font-size: 0.75rem;
+  font-size: 1rem;
   display: inline;
 }
 
 .toggle {
   color: #151111;
   text-decoration: none;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 500;
   transition: 0.3s;
 }
@@ -203,7 +206,8 @@ main.sign-up-mode .carousel {
   background-color: #ffe0d2;
   border-radius: 2rem;
   display: grid;
-  grid-template-rows: auto 1fr;
+  /* modifiqué */
+  grid-template-rows: auto 3fr;
   overflow: hidden;
   transition: 0.8s ease-in-out;
 }
@@ -295,35 +299,45 @@ main.sign-up-mode .carousel {
 @media (max-width: 850px) {
   .box {
     height: auto;
-    max-width: 550px;
+    max-width: 1050px;
     overflow: hidden;
-    padding-left: 2rem;
   }
+
 
   .inner-box {
     position: static;
     transform: none;
     width: revert;
     height: revert;
-    padding: 2rem;
+    
   }
 
   .forms-wrap {
     position: revert;
     width: 100%;
     height: auto;
+    padding-left: 65px;
   }
 
   form {
     max-width: revert;
-    padding: 1.5rem 2.5rem 2rem;
+    padding: 2.5rem 3.5rem 4rem;
     transition: transform 0.8s ease-in-out, opacity 0.45s linear;
   }
 
   .heading {
-    margin: 2rem 0;
+    text-align: center;
   }
 
+  .toggle{
+    text-align: center;
+  }
+
+  .heading h2{
+    font-size: 1.6rem;
+  }
+
+ 
   form.sign-up-form {
     transform: translateX(100%);
   }
@@ -337,11 +351,10 @@ main.sign-up-mode .carousel {
   }
 
   .carousel {
-    position: revert;
     height: auto;
     width: 100%;
     padding: 3rem 2rem;
-    display: flex;
+    display: none;
   }
 
   .images-wrapper {
@@ -351,11 +364,14 @@ main.sign-up-mode .carousel {
   .text-slider {
     width: 100%;
   }
+  text p{
+    text-align: center;
+  }
 }
 
 @media (max-width: 530px) {
   main {
-    padding: 1rem;
+    padding: 0rem;
   }
 
   .box {
@@ -367,8 +383,9 @@ main.sign-up-mode .carousel {
   }
 
   .carousel {
-    padding: 1.5rem 1rem;
+
     border-radius: 1.6rem;
+
   }
 
   .text-wrap {
@@ -379,7 +396,77 @@ main.sign-up-mode .carousel {
     font-size: 1.2rem;
   }
 
+  /* ancho de el formulario */
   form {
-    padding: 1rem 3rem 1.5rem;
+    padding: 1rem 4rem 1.5rem;
   }
+  
+
+p{
+  text-align:center;
+}
+}
+
+
+@media (max-width: 640px ) and  ( max-width: 667px ){
+ 
+  .forms-wrap {
+    position: revert;
+    width: 320px;
+    height: 650px;
+    padding-left: 20px;
+  }
+p{
+line-break: break-all;
+}
+
+h6{
+  font-size:600px;
+}
+/* .toggle{
+  white-space: pre;
+} */
+
+}
+
+
+@media (min-width:428px) and  (max-width: 926px) {
+ 
+  .forms-wrap {
+    position: revert;
+    width: 350px;
+    height: 750px;
+    padding-left: 24px;
+
+    
+  }
+p{
+line-break: break-all;
+}
+
+h6{
+  font-size:60px;
+}
+  
+}
+
+
+@media (min-width:414px) and  (max-width: 736px) {
+  .forms-wrap {
+    position: revert;
+    width: 340px;
+    height: 750px;
+    /* padding-left: 64px; */
+    margin-left: 10px;
+  }
+p{
+line-break: break-all;
+text-align: center;
+}
+
+
+h6{
+  font-size:40px;
+}
+
 }
