@@ -14,6 +14,11 @@
   text-decoration: none;
 }
 
+.cta{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
 
 .dark {
   --mainColor: #64bcf4;
