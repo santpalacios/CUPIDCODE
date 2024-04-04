@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUPIDCODECHAT</title>
+
+    <style>
+
+        #chat{
+            border :1px solid #000;
+            border-radius: 4px;
+            
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 13px Helvetica, Arial;
+
+        }
+
+        form {
+            background: #000;
+            padding: 3px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+        }
+
+        form input {
+            border: 0;
+            padding: 10px;
+            width: 90%;
+        }
+
+        form button {
+            width: 9%;
+            background: rgb(130, 224, 255);
+            border: none;
+            padding: 10px;
+        }
+
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #messages li {
+            padding: 5px 10px;
+        }
+
+        #messages li:nth-child(odd) {
+            background: #eee;
+        }
+    </style>
+    <script type="module">
+        import { io } from 'https://cdn.socket.io/4.7.4/socket.io.esm.min.js'
+        const socket = io()
+
+
+        //obtener elementos del DOM
+        const form = document.getElementById('form')
+        const input = document.getElementById('input')
+        const messages = document.getElementById('messages')
+
+        socket.on('chat message', (msg) => {
+            const item = `<li>${msg}</li>`
+            messages.insertAdjacentHTML('beforeend', item)
+
+        })
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault()
+
+            if (input.value) {
+                socket.emit('chat message', input.value)
+                input.value = ''
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <section id="chat">
+        <ul id="messages"></ul>
+        <form id="form">
+            <input type="text" id="input" placeholder="Type a message" autocomplete="off" />
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+</body>
+
+</html>

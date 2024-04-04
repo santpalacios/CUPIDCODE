@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="shortcut icon" href="images/favico.ico" />
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" type="text/css" href="perfil.css">
+    <link rel="stylesheet" type="text/css" href="carrusel_fotos.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+
+<section class="perfil-usuario">
+
+    
+    <!-- <div class="header_load" style="margin-bottom:2rem;">
+    </div> -->
+
+    <div class="contenedor-perfil">
+        <div class="portada-perfil" style="background-image: url('images/amor.jpg');">
+            <div class="sombra"></div>
+            <div class="avatar-perfil">
+                <img src="images/personas2.gif" alt="img">
+                <a href="#" class="cambiar-foto">
+                    <i class="fas fa-camera"></i> 
+                </a>
+            </div>
+            <div class="datos-perfil">
+                <h4 class="titulo-usuario">Nombre de usuario</h4>
+                <p class="bio-usuario">Aqui la ubicacion, edad etc</p>
+                <ul class="lista-perfil">
+                    <li>en este apartado va su descripción</li>
+                    <li>carrera </li>
+                    <li>etc</li>
+                </ul>
+            </div>
+            <div class="opcciones-perfil">
+            </div>
+        </div>
+        <div class="menu-perfil">
+            <ul>
+                <li><a href="#" title=""><i class="icono-perfil fas fa-grin"></i> En estos apartados</a></li>
+                <li><a href="#" title=""><i class="icono-perfil fas fa-grin"></i>Van sus preferencias</a></li>
+                <li><a href="#" title=""><i class="icono-perfil fas fa-grin"></i> etc</a></li>
+                <li><a href="#" title=""><i class="icono-perfil fas fa-grin"></i>y todo eso</a></li>
+  
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="ful-img" id="fulImgBox">
+    <img src="imgs/1.jpg" id="fulImg" alt="">
+    <span onclick="closeImg()">X</span>
+</div>
+
+<h1><span>Mis fotos</span></h1>
+
+<div class="img-gallery">
+    <img src="images/persona1.jpeg" onclick="openFulImg(this.src)" alt="">
+    <img src="images/persona2.jpeg" onclick="openFulImg(this.src)" alt="">
+    <img src="images/persona3.jpeg" onclick="openFulImg(this.src)" alt="">
+    <img src="images/persona4.jpeg" onclick="openFulImg(this.src)" alt="">
+    <img src="images/image3.png" onclick="openFulImg(this.src)" alt="">
+    <img src="images/amor.jpg" onclick="openFulImg(this.src)" alt="">
+    <img src="images/personas.png" onclick="openFulImg(this.src)" alt="">
+    <img src="images/pic.jpg" onclick="openFulImg(this.src)" alt="">
+    
+</div>
+
+
+<div class="btn-flotante">
+
+</div>
+
+
+
+<script src="js/carrusel_fotos.js"> </script>
+<script>
+    $(document).ready(function () {
+        $('.header_load').load('header.html');
+    });
+</script>
+<!--  -->
+<script>
+    $(document).ready(function () {
+      $('.btn-flotante').load('btn-flotante.html');
+    });
+  </script>
+  <script type="text/javascript">
+    function redirect()
+    {
+   
+    window.location.href="registro.html";
+    }
+    </script>
+</body>
+
+</html>

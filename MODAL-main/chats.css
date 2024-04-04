@@ -1,0 +1,387 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+:root {
+  --grey: #999;
+  --light: #e6e6e6;
+  --blue: #00b0ff;
+  --dark: #1a1a1a;
+}
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+}
+
+/* body{
+  font-family: "Ubuntu";
+    font-weight: 700;
+    font-style: normal;
+  }; */
+
+
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+img {
+  user-select: none;
+}
+.container_chat {
+  
+  width: 800px;
+  min-height: 620px;
+  background-color: #fff;
+  display: flex;
+  margin-block: 65px;
+}
+.container_chat > input {
+  display: none;
+}
+/* Box Left */
+@media (min-width: 0) {
+  .box-left {
+      border-right: 1px solid #e6e6e6;
+      width: 300px;
+      position: relative;
+  }
+  @media (max-width: 767px) {
+      .box-left {
+          width: auto;
+      }
+  }
+  .box-left .search,
+  .box-left .friends label {
+      display: flex;
+      padding: 14px;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      gap: 12px;
+  }
+  @media (min-width: 768px) {
+      .box-left .search,
+      .box-left .friends label {
+          padding: 14px 30px;
+      }
+      .box-left .search::before,
+      .box-left .friends label::before {
+          content: "";
+          position: absolute;
+          width: calc(100% - 60px);
+          height: 1px;
+          background-color: var(--light);
+          left: 50%;
+          translate: -50% 0;
+          bottom: 0;
+          z-index: -1;
+      }
+      .box-left .search {
+          padding: 26px 30px;
+      }
+  }
+  .box-left .search input {
+      background-color: #eceff1;
+      border-radius: 30px;
+      padding: 13px 20px;
+      width: 187px;
+      border: 1px solid var(--light);
+  }
+  @media (max-width: 767px) {
+      .box-left .search input {
+          position: absolute;
+          top: 0;
+          width: calc(100vw - 32px);
+          left: 5px;
+          translate: 0 0;
+          z-index: -1;
+          border-radius: 5px;
+          transition: translate .5s;
+      }
+      .box-left .search:focus-within input {
+          translate: 0 -60px;
+      }
+  }
+  .box-left .search label {
+      background-color: var(--blue);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color:  #f1f8fc;
+      background-repeat: no-repeat;
+     
+  }
+  .box-left .friends label {
+      cursor: pointer;
+  }
+  .box-left label:hover,
+  .container_chat > input[id=jose]:checked ~ .box-left label[for=jose],
+  .container_chat > input[id=erick]:checked ~ .box-left label[for=erick],
+  .container_chat > input[id=sandra]:checked ~ .box-left label[for=sandra],
+  .container_chat > input[id=carla]:checked ~ .box-left label[for=carla],
+  .container_chat > input[id=michel]:checked ~ .box-left label[for=michel],
+  .container_chat > input[id=steph]:checked ~ .box-left label[for=steph] {
+      background-color: var(--blue);
+  }
+  .box-left .friends label img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 20px;
+  }
+  .box-left label .text {
+      flex: 1;
+  }
+  @media (max-width: 767px) {
+      .box-left label .text {
+          display: none;
+      }
+  }
+  .box-left label .text h2 {
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      color: var(--dark);
+  }
+  .box-left label .text :is(p, time) {
+      color: #999;
+      font-size: 14px;
+      font-weight: normal;
+  }
+  .box-left label .text p {
+      width: 165px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+  .box-left label:hover *,
+  .container_chat > input[id=jose]:checked ~ .box-left label[for=jose] *,
+  .container_chat > input[id=erick]:checked ~ .box-left label[for=erick] *,
+  .container_chat > input[id=sandra]:checked ~ .box-left label[for=sandra] *,
+  .container_chat > input[id=carla]:checked ~ .box-left label[for=carla] *,
+  .container_chat > input[id=michel]:checked ~ .box-left label[for=michel] *,
+  .container_chat > input[id=steph]:checked ~ .box-left label[for=steph] * {
+      color: #fff !important;
+  }
+}
+/* Box Right */
+@media (min-width: 0) {
+  .box-right {
+      flex: 1;
+      position: relative;
+      z-index: 0;
+  }
+  .box-right > div {
+      display: grid;
+      align-content: space-between;
+      position: absolute;
+      inset: 0 0 0 0;
+      background-color: #f1f8fc;
+      overflow: hidden;
+  }
+  .box-right > div .name {
+      padding: 14px 30px;
+      background-color: #192e3a;
+      font-size: 15px;
+  }
+  @media (max-width: 767px) {
+      .box-right > div .name {
+          padding: 14px 20px;
+      }
+  }
+  .box-right > div .name span:first-child {
+
+    display:flex;
+    justify-content: flex-start;
+      color: white;
+  }
+  .box-right > div .name span:last-child {
+      font-weight: 600;
+      color: white;
+  }
+  .box-right > div .chat {
+      display: grid;
+      padding: 0 30px;
+  }
+  @media (max-width: 767px) {
+      .box-right > div .chat {
+          padding: 0px 10px;
+      }
+  }
+  .box-right > div .chat time {
+      text-align: center;
+      color: var(--grey);
+      font-size: 14px;
+      position: relative;
+      margin: 26px 0;
+  }
+  .box-right > div .chat time::before,
+  .box-right > div .chat time::after {
+      content: "";
+      position: absolute;
+      background-color: var(--light);
+      height: 1px;
+      width: 30%;
+      top: 50%;
+      translate: 0 -50%;
+  }
+  .box-right > div .chat time::before {
+      left: 6px;
+  }
+  .box-right > div .chat time::after {
+      right: 6px;
+  }
+  .box-right > div .chat span {
+      padding: 12px 14px;
+      background-color: var(--blue);
+      justify-self: start;
+      color: #fff;
+      border-radius: 5px;
+      margin-left: 6px;
+      position: relative;
+      translate: -200px;
+      opacity: 0;
+      visibility: hidden;
+      line-height: 1;
+  }
+  .box-right > div .chat span.right {
+      justify-self: end;
+      background-color: #eceff1;
+      color: var(--dark);
+      margin-left: 0;
+      margin-right: 6px;
+      translate: 200px;
+  }
+  .box-right > div .chat span:not(:last-of-type) {
+      margin-bottom: 8px;
+  }
+  .box-right > div .chat span::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 19px;
+      width: 7px;
+      height: 6px;
+      clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+      background-color: var(--blue);
+  }
+  .box-right > div .chat span.right::before {
+      left: auto;
+      right: -6px;
+      clip-path: polygon(100% 50%, 0% 100%, 0% 0%);
+      background-color: #eceff1;
+  }
+  .box-right > div .chat .send {
+      position: relative;
+      margin: 26px 0;
+  }
+  .box-right > div .chat .send::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 auto 0;
+      height: 1.5px;
+      background-color: var(--blue);
+      bottom: 0;
+      scale: 0 1;
+      transition: scale 300ms;
+  }
+  .box-right > div .chat .send:focus-within::after {
+      scale: 1;
+  }
+  .box-right > div .chat .send input {
+      width: 100%;
+      height: 45px;
+      border-radius: 5px;
+      background-color: #eceff1;
+      padding: 0 70px 0 35px;
+  }
+  .box-right > div .chat .send img {
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      cursor: pointer;
+  }
+  .box-right > div .chat .send [alt=attachment] {
+      left: 15px;
+  }
+  .box-right > div .chat .send [alt=smiley] {
+      right: 45px;
+  }
+  .box-right > div .chat .send [alt=send] {
+      right: 15px;
+  }
+  .container_chat > input[id=jose]:checked ~ .box-right > .jose,
+  .container_chat > input[id=erick]:checked ~ .box-right > .erick,
+  .container_chat > input[id=sandra]:checked ~ .box-right > .sandra,
+  .container_chat > input[id=carla]:checked ~ .box-right > .carla,
+  .container_chat > input[id=michel]:checked ~ .box-right > .michel,
+  .container_chat > input[id=steph]:checked ~ .box-right > .steph {
+      z-index: 1;
+  }
+  .container_chat > input[id=jose]:checked ~ .box-right > .jose .chat span,
+  .container_chat > input[id=erick]:checked ~ .box-right > .erick .chat span,
+  .container_chat > input[id=sandra]:checked ~ .box-right > .sandra .chat span,
+  .container_chat > input[id=carla]:checked ~ .box-right > .carla .chat span,
+  .container_chat > input[id=michel]:checked ~ .box-right > .michel .chat span,
+  .container_chat > input[id=steph]:checked ~ .box-right > .steph .chat span {
+      translate: 0;
+      opacity: 1;
+      visibility: visible;
+  }
+  .container_chat > input[id=jose]:checked ~ .box-right > .jose .chat span:nth-of-type(1),
+  .container_chat > input[id=erick]:checked ~ .box-right > .erick .chat span:nth-of-type(1),
+  .container_chat > input[id=sandra]:checked ~ .box-right > .sandra .chat span:nth-of-type(1),
+  .container_chat > input[id=carla]:checked ~ .box-right > .carla .chat span:nth-of-type(1),
+  .container_chat > input[id=michel]:checked ~ .box-right > .michel .chat span:nth-of-type(1),
+  .container_chat > input[id=steph]:checked ~ .box-right > .steph .chat span:nth-of-type(1) {
+      transition: 300ms;
+  }
+  .container_chat > input[id=jose]:checked ~ .box-right > .jose .chat span:nth-of-type(2),
+  .container_chat > input[id=erick]:checked ~ .box-right > .erick .chat span:nth-of-type(2),
+  .container_chat > input[id=sandra]:checked ~ .box-right > .sandra .chat span:nth-of-type(2),
+  .container_chat > input[id=carla]:checked ~ .box-right > .carla .chat span:nth-of-type(2),
+  .container_chat > input[id=michel]:checked ~ .box-right > .michel .chat span:nth-of-type(2),
+  .container_chat > input[id=steph]:checked ~ .box-right > .steph .chat span:nth-of-type(2) {
+      transition: 450ms;
+  }
+  .container_chat > input[id=jose]:checked ~ .box-right > .jose .chat span:nth-of-type(3),
+  .container_chat > input[id=erick]:checked ~ .box-right > .erick .chat span:nth-of-type(3),
+  .container_chat > input[id=sandra]:checked ~ .box-right > .sandra .chat span:nth-of-type(3),
+  .container_chat > input[id=carla]:checked ~ .box-right > .carla .chat span:nth-of-type(3),
+  .container_chat > input[id=michel]:checked ~ .box-right > .michel .chat span:nth-of-type(3),
+  .container_chat > input[id=steph]:checked ~ .box-right > .steph .chat span:nth-of-type(3) {
+      transition: 600ms;
+  }
+  .container_chat > input[id=erick]:checked ~ .box-right > .erick .chat span:nth-of-type(4),
+  .container_chat > input[id=sandra]:checked ~ .box-right > .sandra .chat span:nth-of-type(4),
+  .container_chat > input[id=carla]:checked ~ .box-right > .carla .chat span:nth-of-type(4),
+  .container_chat > input[id=steph]:checked ~ .box-right > .steph .chat span:nth-of-type(4) {
+      transition: 750ms;
+  }
+  .container_chat > input[id=erick]:checked ~ .box-right > .erick .chat span:nth-of-type(5),
+  .container_chat > input[id=sandra]:checked ~ .box-right > .sandra .chat span:nth-of-type(5),
+  .container_chat > input[id=carla]:checked ~ .box-right > .carla .chat span:nth-of-type(5),
+  .container_chat > input[id=steph]:checked ~ .box-right > .steph .chat span:nth-of-type(5) {
+      transition: 900ms;
+  }
+  .container_chat > input[id=erick]:checked ~ .box-right > .erick .chat span:nth-of-type(6),
+  .container_chat > input[id=sandra]:checked ~ .box-right > .sandra .chat span:nth-of-type(6),
+  .container_chat > input[id=carla]:checked ~ .box-right > .carla .chat span:nth-of-type(6) {
+      transition: 1050ms;
+  }
+  .container_chat > input[id=sandra]:checked ~ .box-right > .sandra .chat span:nth-of-type(7) {
+      transition: 1200ms;
+  }
+}

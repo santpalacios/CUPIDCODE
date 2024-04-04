@@ -1,0 +1,383 @@
+
+
+p{
+    color: grey;
+}
+
+#heading{
+    text-transform: uppercase;
+    color: #3a68ad;
+    font-weight: 700;
+}
+
+#msform{
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+#msform fieldset{
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-card{
+    text-align: center;
+}
+
+#msform fieldset:not(:first-of-type){
+    display: none;
+}
+
+#msform input, #msform textarea{
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Ubuntu';
+    color: #2C3E50;
+    background-color: #ECEFF1;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+
+
+
+#msform input:focus, #msform textarea:focus{
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: px solid #3a68ad;
+    outline-width: 0;
+}
+
+#msform .action-button{
+    width: 100px;
+    background: #3a68ad;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 0px 10px 5px;
+    float: right;
+}
+#msform .action-button:hover,
+#msform .action-button:focus {
+    background-color: #2a20e8
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #616161;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px 10px 0px;
+    float: right
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    background-color: #000000
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    position: relative;
+    border-radius:20px;
+}
+
+.fs-title {
+    font-size: 25px;
+    color: #3a68ad;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-align: center;
+    
+}
+
+.purple-text {
+    color: #BD018A;
+    font-weight: normal
+}
+
+.steps {
+    font-size: 25px;
+    color: gray;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: right
+}
+
+.fieldlabels {
+    color: rgb(0, 0, 0);
+    text-align: left
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey
+}
+
+#progressbar .active {
+    color: #B22222
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 15px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400
+}
+
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content:"\f007"
+  
+}
+
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007"
+}
+
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f004"
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f030"
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #DC143C;
+}
+
+.progress {
+    height: 20px
+}
+
+.progress-bar {
+    background-color: #3a68ad;
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+
+
+select{
+  height: 40px;
+}
+
+.fieldlabels #foto{
+    padding-top: 4rem;
+}
+
+
+/* SECCION DE FOTOS */
+.wrapper_fotos{
+    display: grid;
+    grid-template-columns: 270px 270px;
+    /* COLUMNAS RESPONSIVAS */
+    grid-template-columns: repeat(auto-fit, minmax(min(11.25rem,100%),1fr));
+
+    grid-template-rows: 250px 250px;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 45px;
+    margin: 40px;
+    
+}
+
+.wrapper_fotos {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,
+    25%,
+    50%,
+    75%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-12px);
+    }
+  }
+
+.botones{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+
+}
+
+
+.wrapper_fotos div{
+    display: flex;
+    background-color: #DC143C;
+    height: 100%; /* Establecer la altura al 100% del contenedor padre */
+  border: 1px solid #ccc;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+
+}
+
+.icono{
+    width: 80px;
+    height: 80px;
+}
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* @media (min-width: 412px) and (max-width: 914px) {
+    
+    .wrapper_fotos{
+    height: 70rem;
+    grid-template-columns: 150px 150px;
+    grid-template-columns: repeat(auto-fit, minmax(min(7.25rem,100%),2fr));
+
+    grid-template-rows: 150px 150px;
+    }
+    .icono{
+        width: 40px;
+        height: 40px;
+    }
+    .form{
+        width:700px;
+    }
+
+  } */
+
+
+  /* @media (min-width: 430px) and (max-width: 932px) {
+    
+    .wrapper_fotos{
+    height: 70rem;
+    grid-template-columns: 150px 150px;
+    grid-template-columns: repeat(auto-fit, minmax(min(7.25rem,100%),2fr));
+
+    grid-template-rows: 150px 150px;
+    }
+    .icono{
+        width: 40px;
+        height: 40px;
+    }
+
+  } */
+
+
+  /* @media (min-width: 390px) and (max-width: 844px) {
+    
+    .wrapper_fotos{
+    height: 70rem;
+    grid-template-columns: 150px 150px;
+
+    grid-template-columns: repeat(auto-fit, minmax(min(7.25rem,100%),2fr));
+
+    grid-template-rows: 150px 150px;
+    }
+    .icono{
+        width: 40px;
+        height: 40px;
+    }
+
+  } */
+
+
+  /* @media (max-width: 667px) {
+    
+    .wrapper_fotos{
+    grid-template-columns: 100px 100px;
+    grid-template-columns: repeat(auto-fit, minmax(min(5.25rem,100%),2fr));
+    grid-template-rows: 150px 150px;
+    }
+    .icono{
+        width: 40px;
+        height: 40px;
+    }
+    body{
+        height: 400px;
+    }
+
+    .form-card{
+        height: 600px;
+    }
+  }
+ */
+
+
+  @media (max-width: 736px) {
+    .wrapper_fotos{
+    
+        grid-template-columns: 110px 110px;
+        grid-template-columns: repeat(auto-fit, minmax(min(5.25rem,100%),1fr 1fr));
+    
+        grid-template-rows: 150px 150px;
+        }
+        .icono{
+            width: 40px;
+            height: 40px;
+        }
+        .form-card{
+            height: auto;
+        }
+  }  
+
+ 
