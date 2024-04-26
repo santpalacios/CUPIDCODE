@@ -1,19 +1,29 @@
 <?php
-$sender_id = $_SESSION['user_id'];
-$receiver_id = $_GET['user_id'];
+  require 'conect.php';
+session_start();
+if (isset($_GET['id_us'])) {
+    $receiver_id = $_GET['id_us'];
 
-$sql = "SELECT * FROM messages WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?) ORDER BY timestamp DESC";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("iiii", $sender_id, $receiver_id, $receiver_id, $sender_id);
-$stmt->execute();
-$result = $stmt->get_result();
+  
 
-if ($result->num_rows > 0) {
-  while($row = $result->fetch_assoc()) {
-    echo "<p><strong>" . $row["sender_id"]. ":</strong> " . $row["message"]. " <em>at " . $row["timestamp"]. "</em></p>";
-  }
+    $sql = "SELECT nombre FROM datos_us WHERE id_us = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $receiver_id);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $usuario = $result->fetch_assoc();
+        $receiver_name = $usuario['nombre'];
+
+        
+    } else {
+        echo "Usuario no encontrado";
+        exit;
+    }
 } else {
-  echo "No messages yet.";
+    echo "ID de usuario no proporcionado";
+    exit;
 }
 ?>
 
@@ -284,13 +294,8 @@ if ($result->num_rows > 0) {
 
   <div class="main">
     <div class="container_chat">
-
-      <input type="radio" name="check" id="jose">
-      <input type="radio" name="check" id="erick" checked>
-      <input type="radio" name="check" id="sandra">
-      <input type="radio" name="check" id="carla">
-      <input type="radio" name="check" id="michel">
-      <input type="radio" name="check" id="steph">
+     
+      
       <div class="box-left">
         <div class="search">
           <input type="search" placeholder="Search" id="search">
@@ -298,202 +303,28 @@ if ($result->num_rows > 0) {
         </div>
 
         <div class="friends">
-          <label for="jose" title="Thomas Bangalter">
-            <img src="https://i.ibb.co/58TJZNb/jose.jpg" alt="jose">
-            <div class="text">
-              <h2>
-
-                Sandra <time datetime="14:09">2:09 PM</time>
-
-
-              </h2>
-              <p>Que show</p>
-            </div>
-            <!--
-                    </label>
-                    <label for="erick" title="erick">
-                        <img src="https://i.ibb.co/HC6Z6gV/erick.png" alt="erick">
-                        <div class="text">
-                            <h2>
-                                Erick
-                                <time datetime="13:44">1:44 PM</time>
-                            </h2>
-                            <p>Se va a hacer o nooo...</p>
-                        </div>
-                    </label>
-                    <label for="sandra" title="sandra">
-                        <img src="https://i.ibb.co/52b24Ff/sandra.jpg" alt="sandra">
-                        <div class="text">
-                            <h2>
-                                sandra
-                                <time datetime="14:09">2:09 PM</time>
-                            </h2>
-                            <p>Unas caguamas si o que....</p>
-                        </div>
-                    </label>
-                    <label for="carla" title="carla">
-                        <img src="https://i.ibb.co/XJQDTtg/carla.jpg" alt="carla">
-                        <div class="text">
-                            <h2>
-                                carla
-                                <time datetime="14:09">2:09 PM</time>
-                            </h2>
-                            <p>Holi caryoliiii</p>
-                        </div>
-                    </label>
-                    <label for="michel" title="michel">
-                        <img src="https://i.ibb.co/DVvnBhP/michel.jpg" alt="michel">
-                        <div class="text">
-                            <h2>
-                                michel
-                                <time datetime="14:09">2:09 PM</time>
-                            </h2>
-                            <p>Answer me don't make me feel lonely</p>
-                        </div>
-                    </label>
-                    <label for="stheph" title="steph">
-                        <img src="https://i.ibb.co/Hd6hK5t/stheph.jpg" alt="stheph">
-                        <div class="text">
-                            <h2>
-                                steph
-                                <time datetime="14:09">2:09 PM</time>
-                            </h2>
-                            <p>Hay que vernos, urgente</p>
-                        </div>
-                    </label>
-                </div>
-            </div>
-            <div class="box-right">
-                
-                <div class="jose">
-                    <div class="name">
-                        <span>Para:</span>
-                        <span>Juan Pérez</span>
-                    </div>
-                    <div class="chat">
-                        <time datatime="06:48">Today, 6:48 AM</time>
-                        <span>Que rollo,</span>
-                        <span>Sacaaaa.</span>
-                        <span>Estoy esperando...</span>
-                        <div class="send">
-                            <input type="text">
-                            <img src="https://i.ibb.co/GPRy4gx/attachment.png" alt="attachment">
-                            <img src="https://i.ibb.co/PY4GMmD/smiley.png" alt="smiley">
-                            <img src="https://i.ibb.co/CMZQB1g/send.png" alt="send">
-                        </div>
-                    </div>
-                </div>
-                <div class="header">
-                    <h2>Hola</h2>
-                </div>
-                <div class="erick">
-                    <div class="name">
-                        <span>To:</span>
-                        <span>erick</span>
-                    </div>
-                    <div class="chat">
-                        <time datatime="17:38">Today, 5:38 PM</time>
-                        <span>En cortinas paaaaaa</span>
-                        <span>Se va a hcaer o no</span>
-                        <span class="right">Si vamos o no</span>
-                        <span class="right">Paso por ti padrino</span>
-                        <span>Jalas o pandeas</span>
-                        <span>En cortoooo</span>
-                        <div class="send">
-                            <input type="text">
-                            <img src="https://i.ibb.co/GPRy4gx/attachment.png" alt="attachment">
-                            <img src="https://i.ibb.co/PY4GMmD/smiley.png" alt="smiley">
-                            <img src="https://i.ibb.co/CMZQB1g/send.png" alt="send">
-                        </div>
-                    </div>
-                </div>
-                <div class="sandra">
-                    <div class="name">
-                        <span>To:</span>
-                        <span>sandra</span>
-                    </div>
-                    <div class="chat">
-                        <time datatime="03:38">Today, 3:38 AM</time>
-                        <span>Hey guapo</span>
-                        <span>Umm... Contestame</span>
-                        <span class="right">... ash.</span>
-                        <span class="right">me chocas</span>
-                        <span>creo que....</span>
-                        
-                        <div class="send">
-                            <input type="text">
-                            <img src="https://i.ibb.co/GPRy4gx/attachment.png" alt="attachment">
-                            <img src="https://i.ibb.co/PY4GMmD/smiley.png" alt="smiley">
-                            <img src="https://i.ibb.co/CMZQB1g/send.png" alt="send">
-                        </div>
-                    </div>
-                </div>
-                <div class="carla">
-                    <div class="name">
-                        <span>To:</span>
-                        <span>carla</span>
-                    </div>
-                    <div class="chat">
-                        <time datatime="04:20">Yesterday, 4:20 AM</time>
-                        <span class="right">Que tranzaaaaa</span>
-                        <span class="right">Vamos a pistear</span>
-                        <span>Si o no?.</span>
-                        <span class="right">Vamos</span>
-                        <span class="right">Yo jalo</span>
-                        <div class="send">
-                            <input type="text">
-                            <img src="https://i.ibb.co/GPRy4gx/attachment.png" alt="attachment">
-                            <img src="https://i.ibb.co/PY4GMmD/smiley.png" alt="smiley">
-                            <img src="https://i.ibb.co/CMZQB1g/send.png" alt="send">
-                        </div>
-                    </div>
-                </div>
-                <div class="michel">
-                    <div class="name">
-                        <span>To:</span>
-                        <span>michel</span>
-                    </div>
-                    <div class="chat">
-                        <time datatime="06:28">Today, 6:28 AM</time>
-                        <span>Wasup</span>
-                        <span>Wasup</span>
-                        <span>Vamoooooos</span>
-                        <div class="send">
-                            <input type="text">
-                            <img src="https://i.ibb.co/GPRy4gx/attachment.png" alt="attachment">
-                            <img src="https://i.ibb.co/PY4GMmD/smiley.png" alt="smiley">
-                            <img src="https://i.ibb.co/CMZQB1g/send.png" alt="send">
-                        </div>
-                    </div>
-                </div>
-                <div class="stheph">
-                    <div class="name">
-                        <span>To:</span>
-                        <span>steph</span>
-                    </div>
-                    <div class="chat">
-                        <time datatime="13:27">Monday, 1:27 AM</time>
-                        <span>Salgamos</span>
-                        <span>A platicar un rato cualquier dia.</span>
-                        <span class="right">steph?</span>
-                        <span class="right">Pa recordar esos momentos</span>
-                        <span>Cuando tu eras mia</span>
-                        <div class="send">
-                            <input type="text">
-                            <img src="https://i.ibb.co/GPRy4gx/attachment.png" alt="attachment">
-                            <img src="https://i.ibb.co/PY4GMmD/smiley.png" alt="smiley">
-                            <img src="https://i.ibb.co/CMZQB1g/send.png" alt="send">
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
+        <h2>Chat con <?php echo $receiver_name; ?></h2>
+          
+        <div class = "mensajes" >
+          <?php
+          $sql = "SELECT * FROM messages WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?) ORDER BY timestamp ASC";
+          $stmt = $conn->prepare($sql);
+          $stmt->bind_param("iiii", $_SESSION['id_us'], $receiver_id, $receiver_id, $_SESSION['id_us']);
+          $stmt->execute();
+  
+          $result = $stmt->get_result();
+          while ($row = $result->fetch_assoc()) {
+              echo "<p><b>" . ($row['sender_id'] == $_SESSION['id_us'] ? "Tú" : $receiver_name) . ":</b> " . $row['menssage'] . "</p>";
+          }
+          ?>
         </div>
-        -->
+        <form method="POST">
+        <input type="text" name="mensaje" >
+        <input type="submit" value="Enviar" >
+        </form>
 
         </div>
-
-
-
 
         <div class="btn-flotante">
 

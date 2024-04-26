@@ -1,3 +1,27 @@
+<?php
+session_start();
+require 'conect.php';
+if(isset($_SESSION['id_us'])) {
+    $id_usuario = $_SESSION['id_us'];
+
+    $sql = "SELECT * FROM datos_us WHERE id_us = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id_usuario);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $usuario = $result->fetch_assoc();
+    } else {
+        echo "No se encontró al usuario";
+        exit;
+    }
+} else {
+    echo "No estás logeado";
+    exit;
+}
+?>
+ <!--INICIO DE HTLML-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +46,7 @@
     </div> -->
 
     <div class="contenedor-perfil">
-        <div class="portada-perfil" style="background-image: url('images/amor.jpg');">
+        <div class="portada-perfil" style="background-color:red">
             <div class="sombra"></div>
             <div class="avatar-perfil">
                 <img src="images/personas2.gif" alt="img">
@@ -31,26 +55,44 @@
                 </a>
             </div>
             <div class="datos-perfil">
-                <h4 class="titulo-usuario">Nombre de usuario</h4>
-                <p class="bio-usuario">Aqui la ubicacion, edad etc</p>
-                <ul class="lista-perfil">
-                    <li>en este apartado va su descripción</li>
-                    <li>carrera </li>
-                    <li>etc</li>
-                </ul>
+                <br>
+                <h4 class="titulo-usuario" name= "nombre" style="margin-left:165px;" >  <?php echo $usuario['nombre']; ?></h4>
+                
+                
+                
             </div>
             <div class="opcciones-perfil">
             </div>
         </div>
-        <div class="menu-perfil">
-            <ul>
-                <li><a href="#" title=""><i class="icono-perfil fas fa-grin"></i> En estos apartados</a></li>
-                <li><a href="#" title=""><i class="icono-perfil fas fa-grin"></i>Van sus preferencias</a></li>
-                <li><a href="#" title=""><i class="icono-perfil fas fa-grin"></i> etc</a></li>
-                <li><a href="#" title=""><i class="icono-perfil fas fa-grin"></i>y todo eso</a></li>
-  
-            </ul>
+
+        <center>
+        <div>
+            <h2>Descripción</h2>
+            <p><?php echo $usuario['descripcion']; ?></p>
         </div>
+        </center> 
+
+        <style>
+    .info-usuario {
+        background-color: white;
+        border: 1px solid blue;
+        padding: 20px;
+        margin: 70px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    </style>
+
+       <div class= "info-usuario">
+        <center><h2>SOBRE MI</h2></center>
+       <h4>Carrera</h4><?php echo $usuario['carrera']; ?><br>
+       <h4>Semestre</h4><?php echo $usuario['semestre']; ?> <br>
+       <h4>Estoy interesado en </h4><?php echo $usuario['interesado_en']; ?><br>
+       <h4>Signo</h4><?php echo $usuario['signo_zodiacal']; ?><br>
+       <h4>Busco</h4><?php echo $usuario['busco']; ?><br>
+               
+        </div>
+   
     </div>
 </section>
 
@@ -59,19 +101,12 @@
     <span onclick="closeImg()">X</span>
 </div>
 
-<h1><span>Mis fotos</span></h1>
-
+<h1><span>Mi foto</span></h1>
 <div class="img-gallery">
-    <img src="images/persona1.jpeg" onclick="openFulImg(this.src)" alt="">
-    <img src="images/persona2.jpeg" onclick="openFulImg(this.src)" alt="">
-    <img src="images/persona3.jpeg" onclick="openFulImg(this.src)" alt="">
-    <img src="images/persona4.jpeg" onclick="openFulImg(this.src)" alt="">
-    <img src="images/image3.png" onclick="openFulImg(this.src)" alt="">
-    <img src="images/amor.jpg" onclick="openFulImg(this.src)" alt="">
-    <img src="images/personas.png" onclick="openFulImg(this.src)" alt="">
-    <img src="images/pic.jpg" onclick="openFulImg(this.src)" alt="">
-    
+    <?php echo $usuario['fotos']; ?> <!-- Imprime la ruta de la imagen -->
+    <img src="<?php echo $usuario['fotos']; ?>" onclick="openFulImg(this.src)" alt="">
 </div>
+
 
 
 <div class="btn-flotante">
@@ -83,20 +118,20 @@
 <script src="js/carrusel_fotos.js"> </script>
 <script>
     $(document).ready(function () {
-        $('.header_load').load('header.html');
+        $('.header_load').load('header.php');
     });
 </script>
 <!--  -->
 <script>
     $(document).ready(function () {
-      $('.btn-flotante').load('btn-flotante.html');
+      $('.btn-flotante').load('btn-flotante.php');
     });
   </script>
   <script type="text/javascript">
     function redirect()
     {
    
-    window.location.href="registro.html";
+    window.location.href="registro.php";
     }
     </script>
 </body>

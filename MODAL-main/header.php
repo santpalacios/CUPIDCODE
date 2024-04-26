@@ -422,7 +422,7 @@ require_once 'conec.php';
     <div class="container">
       <div class="logo">
         <img src="images/logo.png" alt="Logo" />
-        <a class="logo" href="index.html"><h3>CupidCode</h3></a>
+        <a class="logo" href="index.php"><h3>CupidCode</h3></a>
       </div>
 
       <div class="links_header">

@@ -1,3 +1,8 @@
+<?php
+
+require 'conect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,12 +16,7 @@
     <link rel='stylesheet' href="registro_inf.css">
     <link rel='stylesheet' href="modal.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -24,231 +24,184 @@
         <div class="big-wrapper light">
             <img src="./img/shape.png" alt="" class="shape" />
 
-            <!-- ESTE S EL HEADER PONER ESTE EN EL HTML Y ABAJO ESTA EL SCRIPT -->
-
+            <!-- Encabezado -->
             <div class="header_load">
+                <img src="images/logo.png" alt="easyclass" onclick="location.href='index.php';" style="width: 20px; hei" />
             </div>
-            <!--  -->
-            <div class="container-fluid"  >
-                <div class="row justify-content-center" >
+
+            <!-- Contenedor del formulario -->
+            <div class="container-fluid">
+                <div class="row justify-content-center">
                     <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center mt-3 mb-2">
-                        <div class="card px-0 pt-4 pb-0 mt-3 mb-3" >
+                        <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                             <h2 style="font-weight:700;" id="heading">Queremos conocerte un poco más</h2>
                             <p>Agrega tu información personal para que la comunidad TECNM pueda saber de ti</p>
 
-                            <form id="msform" method="post" action="save.php" >
-                               
+                            <!-- Formulario -->
+                            <form id="msform" action="saveForm.php" method="POST">
                                 <ul id="progressbar">
                                     <li class="active" id="account"><strong>Cuenta</strong></li>
                                     <li id="personal"><strong>Información Personal</strong></li>
-                                    <li id="payment"><strong>Conociendote</strong></li>
-                                    <li id="confirm"><strong>Sube una foto!</strong></li>
+                                    <li id="payment"><strong>Conociéndote</strong></li>
+                                    <li id="confirm"><strong>Sube una foto</strong></li>
                                 </ul>
 
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                        role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div> <br>
-
+                                <!-- Primer paso del formulario: Información escolar -->
                                 <fieldset>
                                     <div class="form-card">
-                                        <div class="row">
-                                            <div class="col-7 d-flex justify-content-center">
-                                                <h2 class="fs-title">Información escolar:</h2>
-                                            </div>
+                                        <h2 class="fs-title">Información escolar:</h2>
 
-                                        </div> <label class="fieldlabels" >Correo electrónico institucional: *</label>
-                                        <input type="email" id="correo" name="correo" 
-                                            
-                                            disabled />
-                                        <label class="fieldlabels">Número de control: *</label> 
-                                        <input type="text" id="numerodeControl" name="numerodeControl" placeholder="Número de Control" />
+                                        <label class="fieldlabels">Correo electrónico institucional: *</label>
+                                        <input type="email" name="correo" id ="correo" />
+
+                                        <label class="fieldlabels">Nombre Completo: *</label>
+                                        <input type="text" name="nombre" id ="nombre"   />
+
+                                        <label class="fieldlabels">Contraseña: *</label>
+                                        <input type="text" name="pass" id = "pass"  />
+
+                                        <label class="fieldlabels">Número de control: *</label>
+                                        <input type="text" name="numerodeControl" placeholder="Número de Control"  />
+
                                         <label class="fieldlabels">Carrera: *</label><br>
-                                        <select name="select" style="width:90%;">
-                                            <option value="value0" disabled selected>Selecciona una opción</option>
-                                            <option value="value1">Ing. en Sistemas Computacionales</option>
-                                            <option value="value2">Ing. en Gestión Empresarial</option>
-                                            <option value="value3">Ing. Mecatrónica</option>
-                                            <option value="value3">Ing. Industrial</option>
-
+                                        <select name="carrera" id = "carrera">
+                                            <option value="Ing. en Sistemas Computacionales">Ing. en Sistemas Computacionales</option>
+                                            <option value="Ing. en Gestión Empresarial">Ing. en Gestión Empresarial</option>
+                                            <option value="Ing. Mecatrónica">Ing. Mecatrónica</option>
+                                            <option value="Ing. Industrial">Ing. Industrial</option>
                                         </select><br><br>
+                                    </div>
+
+                                    <!-- Botones de navegación del formulario -->
+                                    <input type="button" name="next" class="next action-button" value="Siguiente" />
+                                    <input type="button" name="back" class="next action-button" value="Regresar" onclick="location.href='index.php';" />
+                                </fieldset>
+
+                                <!-- Segundo paso del formulario: Información Personal -->
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Información Personal:</h2>
+
                                         <label class="fieldlabels">Semestre que cursas actualmente: *</label>
-                                        <input type="number" min="1" max="12" name="semestre" placeholder="Semestre" />
+                                        <input type="number" name="semestre" min="1" max="12" placeholder="Semestre"  />
 
-                                    </div>
-                                    <input type="button" name="next" class="next action-button" value="Next" />
-
-                                </fieldset>
-                                <fieldset>
-                                    <div class="form-card">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <h2 style="font-weight:700;" class="fs-title">Información Personal:</h2>
-                                            </div>
-
-                                        </div>
-                                        <label class="fieldlabels">Nombre(s): *</label>
-                                        <input type="text" name="nombre" placeholder="Nombre(s)" /> <span
-                                            class="validity"></span>
-                                        <label class="fieldlabels">Apellidos: *</label>
-                                        <input type="text" name="apellidos" placeholder="Apellidos" />
                                         <label class="fieldlabels">Número Telefónico: *</label>
-                                        <input type="text" name="numero_tel" placeholder="número telefónico" />
-                                        <label class="fieldlabels">Fecha de nacimiento: *</label>
-                                        <input type="date" name="fecha_nac" placeholder="Fecha de nacimiento" />
-                                    </div>
-                                    <input type="button" name="next" class="next action-button" value="Next" />
-                                    <input type="button" name="previous" class="previous action-button-previous"
-                                        value="Previous" />
+                                        <input type="text" name="numero_tel" placeholder="Número telefónico" />
 
+                                        <label class="fieldlabels">Fecha de nacimiento: *</label>
+                                        <input type="date" name="fecha_n" id= "fecha_n" />
+                                        
+                                    </div>
+
+                                    <!-- Botones de navegación -->
+                                    <input type="button" name="next" class="next action-button" value="Siguiente" />
+                                    <input type="button" name="previous" class="previous action-button-previous" value="Regresar" />
                                 </fieldset>
+
+                                <!-- Tercer paso del formulario: Conociéndote -->
                                 <fieldset>
                                     <div class="form-card">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <h2 style="font-weight:700;" class="fs-title">Muestrate ante la
-                                                    comunidad:</h2>
-                                            </div>
+                                        <h2 class="fs-title">Muéstrate ante la comunidad:</h2>
 
-                                        </div> <br>
-                                        <label class="fieldlabels">Interesado en: *</label> <br>
-
-                                        <select name="select" style="width:90%">
-                                            <option value="value0" disabled selected>Selecciona una opción</option>
-                                            <option value="value2">Amistad con derechos</option>
-                                            <option value="value3">Ampliar circulo de amigos</option>
-                                            <option value="value4">Relación seria</option>
-                                            <option value="value5">Relación libre</option>
-                                            <option value="value6">Un "Break"</option>
-                                        </select><br><br>
-                                        <label class="fieldlabels">Sexo: *</label><br>
-                                        <select name="select" style="width:90%">
-                                            <option value="value0" disabled selected>Selecciona una opción</option>
-                                            <option value="m">Masculino</option>
-                                            <option value="f">Femenino</option>
-                                            <option value="o">Otro</option>
-                                        </select><br><br>
                                         <label class="fieldlabels">Busco: *</label><br>
-                                        <select name="select" style="width:90%">
-                                            <option value="value0" disabled selected>Selecciona una opción</option>
-                                            <option value="o">Conocer hombres</option>
-                                            <option value="m">Conocer mujeres</option>
-                                            <option value="ot">Un poquito de todo</option>
+                                        <select name="interesado_en" style="width:90%" >
+                                            <option value="Amistad con derechos">Amistad con derechos</option>
+                                            <option value="Ampliar círculo de amigos">Ampliar círculo de amigos</option>
+                                            <option value="Relación seria">Relación seria</option>
+                                            <option value="Relación libre">Relación libre</option>
+                                            <option value="Un 'Break'">Un 'Break'</option>
                                         </select><br><br>
+
+                                        <label class="fieldlabels">Sexo: *</label><br>
+                                        <select name="sexo" style="width:90%">
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Femenino">Femenino</option>
+                                            <option value="Otro">Otro</option>
+                                        </select><br><br>
+
+                                        <label class="fieldlabels">Interesado en: *</label><br>
+                                        <select name="interesado_en" style="width:90%">
+                                            <option value="Conocer hombres">Conocer hombres</option>
+                                            <option value="Conocer mujeres">Conocer mujeres</option>
+                                            <option value="Un poquito de todo">Un poquito de todo</option>
+                                        </select><br><br>
+
                                         <label class="fieldlabels">Signo Zodiacal: *</label><br>
-                                        <select name="select" style="width:90%">
-                                            <option value="value0" disabled selected>Selecciona una opción</option>
-                                            <option value="pisc">Piscis</option>
-                                            <option value="tau">Tauro</option>
-                                            <option value="cap">Capricornio</option>
-                                            <option value="canc">Cancer</option>
-                                            <option value="gem">Geminis</option>
-                                            <option value="ari">Aries</option>
-                                            <option value="lib">Libra</option>
-                                            <option value="capr">Capricornio</option>
-                                            <option value="acu">Acuario</option>
-                                            <option value="virg">Virgo</option>
-                                            <option value="leo">Leo</option>
-                                            <option value="esc">Escorpio</option>
+                                        <select name="signo_zodiacal" style="width:90%">
+                                            <option value="Piscis">Piscis</option>
+                                            <option value="Tauro">Tauro</option>
+                                            <option value="Leo">Leo</option>
+                                            <option value="Geminis">Geminis</option>
+                                            <option value="Aries">Aries</option>
+                                            <option value="Acuario">Acuario</option>
+                                            <option value="Sagitario">Sagitario</option>
+                                            <option value="Escorpio">Escorpio</option>
+                                            <option value="Cancer">Cancer</option>
+                                            <option value="Libra">Libra</option>
+                                            <option value="Capricornio">Capricornio</option>
+                                            <option value="Virgo">Virgo</option>
+
+                                            <!-- Otras opciones -->
                                         </select><br><br>
+                                        <label class="fieldlabels" for="descripcion">Agrega una breve descripción de ti:</label><br>
+                                        <textarea id="descripcion" name="descripcion" minlength="4" maxlength="200" placeholder="Máximo 200 caracteres" style="width: 90%; height: 150px;"></textarea>
+                                         </div>
 
-                                        <label class="fieldlabels">Agrega una breve descripción de tí:</label><br>
-                                        <textarea minlength="4" maxlength="200" placeholder="máximo 200 caracteres"
-                                            required style=" width: 90%;
-                              height: 150px;
-                              word-wrap: break-word;
-                              overflow-wrap: break-word;"></textarea><br>
-
-                                    </div> <input type="button" name="next" class="next action-button" value="Next" />
-                                    <input type="button" name="previous" class="previous action-button-previous"
-                                        value="Previous" />
+                                    <!-- Botones de navegación -->
+                                    <input type="button" name="next" class="next action-button" value="Siguiente" />
+                                    <input type="button" name="previous" class="previous action-button-previous" value="Regresar" />
                                 </fieldset>
+
+                                <!-- Cuarto paso del formulario: Sube una foto -->
                                 <fieldset>
-                                    
-                                        <div class="row d-flex justify-content-center">
-                                            <div class="col-7">
-                                                <h2 class="fs-title">Sube tus mejores fotos!</h2>
-                                            </div>
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Sube tus mejores fotos!</h2>
 
+                                        <!-- Input para cargar una foto -->
+                                        <div class="mb-3">
+                                            <input class="form-control" type="file" name="fotos" id="fotos">
                                         </div>
-                                        <label class=" fieldlabels" id="foto">Lúcete con tu foto de perfil </label><br>
-                                        <label class=" fieldlabels" id="foto">Que la comunidad ITIZ te conozca
-                                            <span>&#128525</span> </label>
-                                        </label>
-
-                                       
-
-                                             <div class="mb-3">
-                                             <input class="form-control" type="file" id="formFile">
-                                               
-                                              </div>
-                                           <!--- <div><img class="icono" src="images/icon+.svg"></div>
-                                            <div><img class="icono" src="images/icon+.svg"></div>
-                                            <div><img class="icono" src="images/icon+.svg"></div>
-                                            <div><img class="icono" src="images/icon+.svg"></div>
-                                           -->
-                                       
-                                    
-
-
-                                    <div class="boton-modal" style="display:flex; justify-content: flex-end;">
-                                        <input style="display:flex;" type="button" name="previous"
-                                            class="previous action-button-previous" value="Previous" />
-                                        <label for="btn-modal" id="redirigirBoton">¡Terminé!</label>
                                     </div>
 
+                                    <!-- Botones de navegación -->
+                                    <input type="submit" name="save" class="next action-button" value="Listo" />
+                                    <input type="button" name="previous" class="previous action-button" value="Regresar" />
+                                </fieldset>
+                            </form>
 
-
+                            <!-- Ventana Modal -->
+                            <div class="ventana_modal"></div>
                         </div>
-                        </fieldset>
-                        </form>
-
-
-                        
-                        <!--Ventana Modal-->
-                        <div class="ventana_modal">
-                            
-                        </div>
-                        <!--Fin de Ventana Modal-->
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-
     </main>
-   
 
-    <!-- SCRIPT DEL CORREO -->
     <script>
         window.onload = function() {
-          var correo = localStorage.getItem('correo'); // o puedes usar sessionStorage.getItem('correo');
-          document.getElementById('correo').value = correo;
-        };
-        </script>
-        <!--  -->
+            var nombre = localStorage.getItem('nombre');
+            var correo = localStorage.getItem('correo');
+            var pass = localStorage.getItem('pass');
 
-
+            document.getElementById('nombre').value = nombre;
+            document.getElementById('correo').value = correo;
+            document.getElementById('pass').value = pass;
+        }
+    </script>
     <!-- SCRIPT DE HEADER -->
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.header_load').load('header.html');
         });
     </script>
-    <!--  -->
-    <script>
-        $(document).ready(function () {
-            $('.ventana_modal').load('modal_registro.html');
-        });
-    </script>
+   
 
-</html>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script src="js/registro_inf.js"></script>
-<script src="js/index.js"></script>
-<script src="js/modal.js"></script>
-
-
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/registro_inf.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 
 </html>
