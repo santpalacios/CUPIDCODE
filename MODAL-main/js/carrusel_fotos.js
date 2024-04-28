@@ -7,4 +7,5 @@ function openFulImg(reference){
 }
 function closeImg(){
     fulImgBox.style.display = "none";
+    
 }

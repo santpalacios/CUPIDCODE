@@ -4,7 +4,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   width: 100%;
   height: 100%;
   background-color: #f1f8fc;
@@ -13,7 +13,7 @@ html, body {
 .frame {
   position: relative;
   width: 56vh;
-  height: 84vh;
+  height: 94vh;
   max-width: 400px;
   max-height: 600px;
   z-index: 1;
@@ -132,7 +132,7 @@ html, body {
 }
 
 
- .logo a{
+.logo a{
   color: black;
   padding-right: 300px;
 }
@@ -144,8 +144,8 @@ html, body {
 
 @media screen and (max-height: 540px) {
   .frame {
-    width: 54vh;
-    height: 81vh;
+    width: 400px;
+  height: 750px;
     font-size: 13px;
   }
   
@@ -154,8 +154,15 @@ html, body {
 @media screen and (max-height: 440px) {
   .frame {
     font-size: 8px;
+    position: relative;
+    width: 400px;
+    height: 750px;
+    max-width: 600px;
+    max-height: 530px;
+    z-index: 1;
+    margin-top: 60px;
+    font-size: 15px;
   }
- 
 }
 
 
@@ -168,12 +175,12 @@ html, body {
   }
   .frame {
     position: relative;
-    width: 50vh;
-    height: 80vh;
-    max-width: 400px;
-    max-height: 600px;
+    width: 400px;
+    height: 650px;
+    max-width: 600px;
+    max-height: 550px;
     z-index: 1;
-    margin-top: 60px;
+    margin-top: 50px;
     font-size: 15px;
   }
 }
