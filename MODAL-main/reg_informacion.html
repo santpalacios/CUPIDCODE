@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CupidCode</title>
+    <link rel="shortcut icon" href="images/favico.ico" />
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
+    <link rel="stylesheet" href="style.css">
+    <link rel='stylesheet' href="registro_inf.css">
+    <link rel='stylesheet' href="modal.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <div class="big-wrapper light">
+            <img src="./img/shape.png" alt="" class="shape" />
+
+            <!-- ESTE S EL HEADER PONER ESTE EN EL HTML Y ABAJO ESTA EL SCRIPT -->
+
+            <div class="header_load">
+            </div>
+            <!--  -->
+            <div class="container-fluid"  >
+                <div class="row justify-content-center" >
+                    <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center mt-3 mb-2">
+                        <div class="card px-0 pt-4 pb-0 mt-3 mb-3" >
+                            <h2 style="font-weight:700;" id="heading">Queremos conocerte un poco más</h2>
+                            <p>Agrega tu información personal para que la comunidad TECNM pueda saber de ti</p>
+                            <form id="msform">
+                                <ul id="progressbar">
+                                    <li class="active" id="account"><strong>Cuenta</strong></li>
+                                    <li id="personal"><strong>Información Personal</strong></li>
+                                    <li id="payment"><strong>Conociendote</strong></li>
+                                    <li id="confirm"><strong>Sube una foto!</strong></li>
+                                </ul>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                        role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div> <br>
+
+                                <fieldset>
+                                    <div class="form-card">
+                                        <div class="row">
+                                            <div class="col-7 d-flex justify-content-center">
+                                                <h2 class="fs-title">Información escolar:</h2>
+                                            </div>
+
+                                        </div> <label class="fieldlabels">Correo electrónico institucional: *</label>
+                                        <input type="email" name="email"
+                                            placeholder="Aqui hay que jalar el correo que ya dio en el registro"
+                                            disabled />
+                                        <label class="fieldlabels">Número de control: *</label> <input type="text"
+                                            name="n_control" placeholder="Número de Control" />
+                                        <label class="fieldlabels">Carrera: *</label><br>
+                                        <select name="select" style="width:90%;">
+                                            <option value="value0" disabled selected>Selecciona una opción</option>
+                                            <option value="value1">Ing. en Sistemas Computacionales</option>
+                                            <option value="value2">Ing. en Gestión Empresarial</option>
+                                            <option value="value3">Ing. Mecatrónica</option>
+                                            <option value="value3">Ing. Industrial</option>
+
+                                        </select><br><br>
+                                        <label class="fieldlabels">Semestre que cursas actualmente: *</label>
+                                        <input type="number" min="1" max="12" name="semestre" placeholder="Semestre" />
+
+                                    </div>
+                                    <input type="button" name="next" class="next action-button" value="Next" />
+
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <h2 style="font-weight:700;" class="fs-title">Información Personal:</h2>
+                                            </div>
+
+                                        </div>
+                                        <label class="fieldlabels">Nombre(s): *</label>
+                                        <input type="text" name="nombre" placeholder="Nombre(s)" /> <span
+                                            class="validity"></span>
+                                        <label class="fieldlabels">Apellidos: *</label>
+                                        <input type="text" name="apellidos" placeholder="Apellidos" />
+                                        <label class="fieldlabels">Número Telefónico: *</label>
+                                        <input type="text" name="numero_tel" placeholder="número telefónico" />
+                                        <label class="fieldlabels">Fecha de nacimiento: *</label>
+                                        <input type="date" name="fecha_nac" placeholder="Fecha de nacimiento" />
+                                    </div>
+                                    <input type="button" name="next" class="next action-button" value="Next" />
+                                    <input type="button" name="previous" class="previous action-button-previous"
+                                        value="Previous" />
+
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <h2 style="font-weight:700;" class="fs-title">Muestrate ante la
+                                                    comunidad:</h2>
+                                            </div>
+
+                                        </div> <br>
+                                        <label class="fieldlabels">Interesado en: *</label> <br>
+
+                                        <select name="select" style="width:90%">
+                                            <option value="value0" disabled selected>Selecciona una opción</option>
+                                            <option value="value2">Amistad con derechos</option>
+                                            <option value="value3">Ampliar circulo de amigos</option>
+                                            <option value="value4">Relación seria</option>
+                                            <option value="value5">Relación libre</option>
+                                            <option value="value6">Un "Break"</option>
+                                        </select><br><br>
+                                        <label class="fieldlabels">Sexo: *</label><br>
+                                        <select name="select" style="width:90%">
+                                            <option value="value0" disabled selected>Selecciona una opción</option>
+                                            <option value="m">Masculino</option>
+                                            <option value="f">Femenino</option>
+                                            <option value="o">Otro</option>
+                                        </select><br><br>
+                                        <label class="fieldlabels">Busco: *</label><br>
+                                        <select name="select" style="width:90%">
+                                            <option value="value0" disabled selected>Selecciona una opción</option>
+                                            <option value="o">Conocer hombres</option>
+                                            <option value="m">Conocer mujeres</option>
+                                            <option value="ot">Un poquito de todo</option>
+                                        </select><br><br>
+                                        <label class="fieldlabels">Signo Zodiacal: *</label><br>
+                                        <select name="select" style="width:90%">
+                                            <option value="value0" disabled selected>Selecciona una opción</option>
+                                            <option value="pisc">Piscis</option>
+                                            <option value="tau">Tauro</option>
+                                            <option value="cap">Capricornio</option>
+                                            <option value="canc">Cancer</option>
+                                            <option value="gem">Geminis</option>
+                                            <option value="ari">Aries</option>
+                                            <option value="lib">Libra</option>
+                                            <option value="capr">Capricornio</option>
+                                            <option value="acu">Acuario</option>
+                                            <option value="virg">Virgo</option>
+                                            <option value="leo">Leo</option>
+                                            <option value="esc">Escorpio</option>
+                                        </select><br><br>
+
+                                        <label class="fieldlabels">Agrega una breve descripción de tí:</label><br>
+                                        <textarea minlength="4" maxlength="200" placeholder="máximo 200 caracteres"
+                                            required style=" width: 90%;
+                              height: 150px;
+                              word-wrap: break-word;
+                              overflow-wrap: break-word;"></textarea><br>
+
+                                    </div> <input type="button" name="next" class="next action-button" value="Next" />
+                                    <input type="button" name="previous" class="previous action-button-previous"
+                                        value="Previous" />
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-7">
+                                                <h2 class="fs-title">Sube tus mejores fotos!</h2>
+                                            </div>
+
+                                        </div>
+                                        <label class=" fieldlabels" id="foto">Lúcete con tus fotos </label><br>
+                                        <label class=" fieldlabels" id="foto">Que la comunidad ITIZ te conozca
+                                            <span>&#128525</span> </label>
+                                        </label>
+
+                                        <div class="wrapper_fotos">
+                                            <div><img class="icono" src="images/icon+.svg"></div>
+                                            <div><img class="icono" src="images/icon+.svg"></div>
+                                            <div><img class="icono" src="images/icon+.svg"></div>
+                                            <div><img class="icono" src="images/icon+.svg"></div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="boton-modal" style="display:flex; justify-content: flex-end;">
+                                        <input style="display:flex;" type="button" name="previous"
+                                            class="previous action-button-previous" value="Previous" />
+                                        <label for="btn-modal" id="redirigirBoton">¡Terminé!</label>
+                                    </div>
+
+
+
+                        </div>
+                        </fieldset>
+                        </form>
+
+
+                        
+                        <!--Ventana Modal-->
+                        <div class="ventana_modal">
+                            
+                        </div>
+                        <!--Fin de Ventana Modal-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </main>
+   
+
+    <!-- SCRIPT DE HEADER -->
+    <script>
+        $(document).ready(function () {
+            $('.header_load').load('header.html');
+        });
+    </script>
+    <!--  -->
+    <script>
+        $(document).ready(function () {
+            $('.ventana_modal').load('modal_registro.html');
+        });
+    </script>
+
+</html>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src="js/registro_inf.js"></script>
+<script src="js/index.js"></script>
+<script src="js/modal.js"></script>
+
+
+</body>
+
+</html>
