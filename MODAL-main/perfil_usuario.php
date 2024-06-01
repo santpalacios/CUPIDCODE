@@ -1,3 +1,24 @@
+<?php
+session_start();
+require 'conexion.php';
+
+if(isset($_GET['id_us'])) {
+    $id_usuario = $_GET['id_us'];
+
+    $sql = "SELECT * FROM datos_us WHERE id_us = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id_usuario);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $usuario = $result->fetch_assoc();
+    } else {
+        echo "No se encontró al usuario";
+        exit;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +39,7 @@
 
 
     
-    <div class="header_load" ">
+    <div class="header_load" >
     </div>
 
 
@@ -26,20 +47,18 @@
         <form method="post">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                        <div class="file btn btn-lg btn-primary">Cambiar foto
-                            <input type="file" name="file"/>
-                        </div>
+                <div class="profile-img">
+                        <img src="<?php echo $usuario['rutaFotos']; ?>" alt=""/>
+                       
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
-                                <h5>Pepe Pecas Pica papas</h5>
+                                <h5> <?php echo $usuario['nombre']; ?></h5>
                                 <h6>
-                                    Ingenieria en sistemas
+                                <?php echo $usuario['carrera']; ?>
                                 </h6>
-                                <p class="proile-rating" style="font-size:20px;"><a href="chats.html" style="text-decoration:none;"><span>	&#128140</span> Enviar mensaje...</a></p>
+                                <p class="proile-rating" style="font-size:20px;"><a href="chats.php" style="text-decoration:none;"><span>	&#128140</span> Enviar mensaje...</a></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sobre mí...</a>
@@ -48,30 +67,32 @@
                         </ul>
                     </div>
                 </div>
+                <!-- Botón para editar perfil 
                 <div class="col-md-2">
                     <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Editar perfil"/>
                 </div>
+                -->
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-work">
                         <p>Mis preferencias: </p>
                         <a><span>  &#129313</span> Edad: </a> 
-                            <text>aqui la edad</text>
+                            <text><?php echo $usuario['fecha_n']?></text>
                         <a href=""><span>  &#128293</span> Me identifico como: </a>
-                            <text>aqui sexo</text>
+                            <text><?php echo $usuario['sexo']?></text>
                         <a href=""><span>  &#128586</span> Busco: </a>
-                        <text>aqui que busca</text>
+                        <text><?php echo $usuario['busco']?></text>
                         <a href=""><span>&#9801
                         </span> Signo zodiacal: </a>
-                        <text>aqui signo zodiacal</text> 
+                        <text><?php echo $usuario['signo_zodiacal']?></text> 
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="tab-content profile-tab" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                     
-                            <textarea class="descripcion" minlength="4" maxlength="200" placeholder="Aqui va la descripcionde la persona"
+                            <textarea class="descripcion" minlength="4" maxlength="200" placeholder="<?php echo $usuario['descripcion']; ?>"
                             required style=" width: 400px; /* Ancho del contenedor */
                             height: 300px; /* Altura del contenedor */
                             border: 1px solid #ccc;
@@ -94,23 +115,23 @@
 </div> 
 
 
-
+<!--
 <script>
     $(document).ready(function () {
-        $('.header_load').load('header.html');
+        $('.header_load').load('header.php');
     });
 </script>
-<!--  -->
+  -->
 <script>
     $(document).ready(function () {
-      $('.btn-flotante').load('btn-flotante.html');
+      $('.btn-flotante').load('btn-flotante.php');
     });
   </script>
   <script type="text/javascript">
     function redirect()
     {
    
-    window.location.href="registro.html";
+    window.location.href="registro.php";
     }
     </script>
 </body>

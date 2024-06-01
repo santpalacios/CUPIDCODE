@@ -19,10 +19,10 @@
         </label>
     
         <ul class="menu__box">
-          <li> <a class="menu__item" href="perfil.html">Mi Perfil <span>&#128583</span></a> </li>
-          <li><a class="menu__item" href="chats.html">Mis conversaciones <span>&#128140</span></a></li>
-          <li><a class="menu__item" href="match.html">Match <span>&#128145</span></a></li>
-          <li><a class="menu__item" href="registro.html">Cerrar sesión <span>&#9996</span></a></li>
+          <li> <a class="menu__item" href="perfil.php">Mi Perfil <span>&#128583</span></a> </li>
+          <li><a class="menu__item" href="chats.php">Mis conversaciones <span>&#128140</span></a></li>
+          <li><a class="menu__item" href="match.php">Match <span>&#128145</span></a></li>
+          <li><a class="menu__item" href="registro.php">Cerrar sesión <span>&#9996</span></a></li>
 
           
         </ul>

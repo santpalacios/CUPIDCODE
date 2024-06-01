@@ -46,7 +46,7 @@ min.js"></script>
               <li><a href="#">Inicio</a></li>
               <li><a href="#nosotros">Sobre nosotros</a></li>
               <li><a href="#porque">¿Por qué CupidCode?</a></li>
-              <li><a href="registro.html" class="btn">Iniciar Sesión</a></li>
+              <li><a href="registro.php" class="btn">Iniciar Sesión</a></li>
             </ul>
           </div>
 
@@ -69,7 +69,7 @@ min.js"></script>
               <span style="font-weight:900">¡Portate mal y cuidate bien!</span>
             </p>
             <div class="cta">
-              <a href="registro.html" class="btn">Llevame ahí!</a>
+              <a href="registro.php" class="btn">Llevame ahí!</a>
             </div>
           </div>
           <div class="box">
@@ -124,7 +124,7 @@ min.js"></script>
 
 <!-- seccion por que cupidcode -->
 
-<div class="about-section">
+<div class="about-section" id="porque">
   <div class="inner-container" style>
     <h1 style="text-align:center; font-size: 50px; ">¿Por qué elegir <span style="color:#9B5DE5;">CupidCode?</span><span>&#128513</span></h1>
     <p class="text" style="text-align:justify; padding: 0 50px; ">
@@ -138,15 +138,9 @@ min.js"></script>
 </div>
 <!--  -->
 
-
-
-
-
-
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script src="js/index.js"></script>
   <script src="js/scroll.js"></script>
-  <script src="js/progressbar.js"></script>
   <script src="js/script.js"></script>
 
 </body>

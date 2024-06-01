@@ -243,12 +243,12 @@
         <div class="container">
           <div class="logo">
             <img src="images/logo.png" alt="Logo" />
-            <a class="logo" href="index.html"><h3 style="color:black;">CupidCode</h3></a>
+            <a class="logo" href="index.php"><h3 style="color:black;">CupidCode</h3></a>
           </div>
     
           <div class="links_header">
             <ul>
-              <li><a href="index.html">Inicio</a></li>
+              <li><a href="index.php">Inicio</a></li>
               <li><a href="#">Sobre nosotros</a></li>
               <li><a href="#">¿Por qué CupidCode?</a></li>
               <li><a href="#"></a></li>
@@ -467,19 +467,10 @@ Sandra                                <time datetime="14:09">2:09 PM</time>
 
         </div>
     </body>
-
-
-
-
-
-    <script>
-        $(document).ready(function () {
-          $('.header_load').load('header.html');
-        });
-      </script>
+    
       <script>
         $(document).ready(function () {
-          $('.btn-flotante').load('btn-flotante.html');
+          $('.btn-flotante').load('btn-flotante.php');
         });
       </script>
     <script type="text/javascript" src="js/chat_ind.js"></script>

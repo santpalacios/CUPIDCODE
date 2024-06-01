@@ -1,0 +1,24 @@
+Last login: Wed Apr 24 20:06:45 on ttys002
+ceesar@Laptop-de-Cesar ~ % choco --version
+zsh: command not found: choco
+ceesar@Laptop-de-Cesar ~ % npm -v
+10.5.1
+ceesar@Laptop-de-Cesar ~ % npx
+
+Entering npm script environment at location:
+/Users/ceesar
+Type 'exit' or ^D when finished
+
+sh-3.2$ choco -v
+sh: choco: command not found
+sh-3.2$ 
+
+
+
+
+
+
+
+
+
+

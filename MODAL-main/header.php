@@ -1,3 +1,6 @@
+<?php
+include 'conexion.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -419,12 +422,12 @@
     <div class="container">
       <div class="logo">
         <img src="images/logo.png" alt="Logo" />
-        <a class="logo" href="index.html"><h3>CupidCode</h3></a>
+        <a class="logo" href="index.php"><h3>CupidCode</h3></a>
       </div>
 
       <div class="links_header">
         <ul>
-          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.php">Inicio</a></li>
           <li><a href="#">Sobre nosotros</a></li>
           <li><a href="#">¿Por qué CupidCode?</a></li>
           <li><a href="#"></a></li>

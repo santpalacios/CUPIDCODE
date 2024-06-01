@@ -27,7 +27,11 @@
         <div class="box">
           <div class="inner-box">
             <div class="forms-wrap">
-              <form action="perfil.html" autocomplete="off" class="sign-in-form">
+
+
+              <!-- Inicio de sesión formulario -->
+              <form action="ingresar.php" autocomplete="off" class="sign-in-form"
+              id="FormInicioSesion" method="POST">
                 <div class="logo">
                   <!-- <img src="images/logo.png" alt="easyclass" /> -->
                   <h2>CupidCode</h2>
@@ -38,28 +42,31 @@
                   <h6>¿Aún no estas registrado?</h6>
                   <a href="#" class="toggle">Registrarme</a>
                 </div>
-
+                   
                 <div class="actual-form">
                   <div class="input-wrap">
-                    <input type="email"  class="input-field" autocomplete="off" required />
+                    <input type="email"  class="input-field" autocomplete="off" required
+                    id="correo_login" name="correo"/>
                     <label>Correo institucional</label>
                   </div>
 
                   <div class="input-wrap">
-                    <input type="password" minlength="4" class="input-field" autocomplete="off" required />
+                    <input type="password" minlength="4" class="input-field" autocomplete="off" required
+                    id="pass" name="pass"  />
                     <label>Password</label>
                   </div>
 
-                  <input type="submit"  formaction="perfil.html" value="Sign In" class="sign-btn" />
+                  <input type="submit"  value="Sign In" class="sign-btn" 
+                  id="ingresar" name="ingresar"/>
 
-                  <p class="text">
-                    ¿Olvidaste tu password?
-                    <a href="#">Recuperalo</a> para iniciar sesión
-                  </p>
+                  
                 </div>
               </form>
 
-              <form action="reg_informacion.html" autocomplete="off" class="sign-up-form">
+
+              <!-- Registro formulario -->
+              <form  autocomplete="off" class="sign-up-form"id="myForm" method="POST" 
+              onsubmit="return validarCorreo()">
                 <div class="logo">
                   <img src="images/logo.png" alt="easyclass" />
                   <h2>CupidCode</h2>
@@ -73,21 +80,24 @@
 
                 <div class="actual-form">
                   <div class="input-wrap">
-                    <input type="text" minlength="4" class="input-field" autocomplete="off" required />
+                    <input type="text" minlength="4" class="input-field" autocomplete="off" required 
+                    id="nombreRegistro" name="nombreRegistro"/>
                     <label>Nombre</label>
                   </div>
 
                   <div class="input-wrap">
-                    <input type="email" class="input-field" autocomplete="off" required />
+                    <input type="email" class="input-field" autocomplete="off" required 
+                    name="correoRegistro" id="correoRegistro"/>
                     <label>Email</label>
                   </div>
 
                   <div class="input-wrap">
-                    <input type="password" minlength="4" class="input-field" autocomplete="off" required />
+                    <input type="password" minlength="4" class="input-field" autocomplete="off" required 
+                    id="passRegistro" name="passRegistro"/>
                     <label>Password</label>
                   </div>
 
-                  <input type="submit" formaction="reg_informacion.html" value="Sign Up" class="sign-btn" />
+                  <input type="submit" formaction="reg_informacion.php" value="Sign Up" class="sign-btn" />
 
                   <p class="text">
                     Al registrarte, aceptas los
@@ -131,9 +141,31 @@
   <!-- partial -->
   <script>
     $(document).ready(function () {
-      $('.header_load').load('header.html');
+      $('.header_load').load('header.php');
     });
   </script>
+<!--SCRIPT DE CORREO-->
+<script>
+  function validarCorreo() {
+    var correo = document.getElementById("correoRegistro").value;
+    var pass = document.getElementById("passRegistro").value;
+    var nombre = document.getElementById("nombreRegistro").value;
+    // Expresión regular para validar el formato del correo
+    var regex = /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+tecnm\.mx$/i; 
+    if (regex.test(correo)) {
+   
+      localStorage.setItem('nombre', nombre);
+      localStorage.setItem('correo', correo);
+      localStorage.setItem('pass', pass);
+    
+      window.location.href = 'reg_informacion.php';
+      return true;
+    } else {
+      alert("El correo no es válido. Por favor, ingresa un correo institucional válido.");
+      return false;
+    }
+  }
+</script>
 
 </body>
 

@@ -10,6 +10,13 @@ html, body {
   background-color: #f1f8fc;
 }
 
+.img-container {
+  display: flex;
+  justify-content: center;
+
+  object-fit: cover;
+ }
+
 .frame {
   position: relative;
   width: 56vh;
@@ -130,7 +137,6 @@ html, body {
   font-weight: 800;
 
 }
-
 
 .logo a{
   color: black;
